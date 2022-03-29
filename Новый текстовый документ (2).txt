@@ -1,0 +1,59 @@
+package com.company;
+
+import java.util.regex.Pattern;
+
+public class Main {
+
+    public static void main(String[] args) {
+   boolean b = Pattern.matches(".","1");
+        System.out.println(b);
+
+        b = Pattern.matches(".s", "as");
+        System.out.println(b);
+
+        b=Pattern.matches("a+","aaa");
+        System.out.println(b);
+
+        b=Pattern.matches("a+b","aab");
+        System.out.println(b);
+
+
+        b=Pattern.matches("a*","aab");
+        System.out.println(b);
+
+        //Начинается на "a"
+        b=Pattern.matches("a.*","acb");
+        System.out.println(b);
+
+        //заканчивается на "a"
+        b=Pattern.matches(".*a","cba");
+        System.out.println(b);
+
+        //Содержит "ab"
+        b=Pattern.matches(".*ab.*","cbabsd");
+        System.out.println(b);
+
+        //Не содержит букву "a"
+
+        b=Pattern.matches("[^a]*","bbb");
+        System.out.println(b);
+
+        //Состоит из букв латиницы и вклучает "a"
+        b=Pattern.matches("[a-zA-Z]*a[a-zA-Z]","aabsad");
+        System.out.println(b);
+
+        //Строка состоит только из цифр   //     "\\d"
+        System.out.println(Pattern.matches("[0-9]*","2"));
+
+        //Не должна начинаться на буквы А и Б
+        System.out.println(Pattern.matches("[^ab].*","csd"));
+
+        //Строка является вещественным числом
+        System.out.println(Pattern.matches("[-+]?\\d+.?\\d+","-1."));
+
+        //Телефон +375 29 783 36 34
+        System.out.println(Pattern.matches("[+]375 \\d{2} \\d{7}","+375 29 7833634"));
+
+
+    }
+}
